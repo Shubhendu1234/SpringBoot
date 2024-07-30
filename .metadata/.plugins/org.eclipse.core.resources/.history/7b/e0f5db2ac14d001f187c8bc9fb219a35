@@ -1,0 +1,67 @@
+package com.employee_service.service.impl;
+
+import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.employee_service.dto.EmployeeDto;
+import com.employee_service.enities.Employee;
+import com.employee_service.repostories.EmployeeRespository;
+import com.employee_service.service.EmployeeService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class EmployeeServiceImpl implements EmployeeService{
+	@Autowired
+	private EmployeeRespository employeeRespository;
+	
+	@Autowired
+	ModelMapper modelMapper;
+	@Override
+	public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
+		// TODO Auto-generated method stub
+		Employee employee = new Employee(employeeDto.getId(),
+				employeeDto.getFirstName(),employeeDto.getLastName(),
+				employeeDto.getEmail());
+		
+		Employee savedEmployed = employeeRespository.save(employee);
+		
+//		EmployeeDto savedEmployeeDto = new EmployeeDto(
+//				savedEmployed.getId(),savedEmployed.getFirstName(),
+//				savedEmployed.getLastName(),savedEmployed.getEmail()
+//				);
+		
+		//modelmapper
+		
+		EmployeeDto savedEmployeeDto = mapper.map
+		
+		
+		
+		return savedEmployeeDto;
+	}
+	@Override
+	public EmployeeDto getEmployeeById(Long id) {
+		// TODO Auto-generated method stub
+	Optional<Employee> employee =	employeeRespository.findById(id);
+	if(employee.isEmpty())
+	{
+		
+	}
+	
+		Employee emp = employee.get();
+		EmployeeDto empDto = new EmployeeDto(emp.getId(),
+				emp.getFirstName(),
+				emp.getLastName(),
+				emp.getEmail()
+				);
+		
+		return empDto;
+	
+	
+	}
+
+}

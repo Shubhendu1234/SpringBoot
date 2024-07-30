@@ -1,0 +1,25 @@
+package com.department_service.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.department_service.dto.DepartmentDto;
+import com.department_service.repositories.DepartmentRepository;
+import com.department_service.service.DepartmentService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class DepartmentServiceImpl implements DepartmentService{
+	
+	
+	DepartmentRepository departmentRepository;
+		
+	@Override
+	public DepartmentDto saveDepartment(DepartmentDto departmentDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

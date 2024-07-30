@@ -1,0 +1,5 @@
+package com.employee_service.dto;
+
+public class ApiResponseDto {
+
+}

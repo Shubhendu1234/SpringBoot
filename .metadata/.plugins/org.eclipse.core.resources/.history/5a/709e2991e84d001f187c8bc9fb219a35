@@ -1,0 +1,12 @@
+package com.department_service.exceptions;
+
+import java.time.LocalDateTime;
+
+public class ErrorDetails {
+	
+	private LocalDateTime timeStamp;
+	private String message;
+	private String path;
+	private String errorcode;
+
+}
